@@ -53,6 +53,10 @@
     .faq-item.active .faq-content { display: block; }
     .faq-icon { transition: transform 0.3s ease; }
     .faq-item.active .faq-icon { transform: rotate(180deg); }
+
+    /* Ocultar barra de rolagem (Scrollbar) nos Carrosséis Mobile */
+    .hide-scrollbar::-webkit-scrollbar { display: none; }
+    .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
   </style>
 </head>
 <body class="min-h-screen antialiased relative">
@@ -195,7 +199,7 @@
       </div>
     </section>
 
-    <!-- ================= PLANOS ================= -->
+    <!-- ================= PLANOS (CARROSSÉL MOBILE) ================= -->
     <section class="relative overflow-hidden bg-background py-24">
       <!-- Ondas Orgânicas Verdes no Fundo -->
       <svg class="absolute inset-0 w-full h-full z-0 opacity-[0.55] pointer-events-none select-none" preserveAspectRatio="xMidYMid slice" viewBox="0 0 1440 800" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -207,10 +211,12 @@
           <p class="text-xs font-semibold uppercase tracking-[0.2em] text-foreground/50">Planos</p>
           <h2 class="mt-3 font-display text-3xl font-extrabold tracking-tight sm:text-5xl">Escolha o ritmo do seu movimento.</h2>
         </div>
-        <div class="mt-14 grid grid-cols-1 gap-6 lg:grid-cols-3">
+        
+        <!-- Container Flex no Mobile (Carrossel) e Grid no Desktop -->
+        <div class="mt-14 flex overflow-x-auto snap-x snap-mandatory gap-6 pb-12 hide-scrollbar -mx-6 px-6 lg:mx-0 lg:px-0 lg:grid lg:grid-cols-3 lg:overflow-visible lg:pb-0">
           
           <!-- START -->
-          <div class="relative flex flex-col rounded-3xl border border-border bg-background/95 backdrop-blur-md p-8 transition hover:border-foreground/30 shadow-sm">
+          <div class="shrink-0 w-[85vw] sm:w-[350px] lg:w-auto snap-center relative flex flex-col rounded-3xl border border-border bg-background/95 backdrop-blur-md p-8 transition hover:border-foreground/30 shadow-sm">
             <div class="flex items-baseline justify-between">
               <h3 class="font-display text-3xl font-extrabold tracking-tight">START</h3>
               <span class="text-xs font-semibold uppercase tracking-wider text-foreground/50">Identidade</span>
@@ -226,7 +232,7 @@
           </div>
 
           <!-- PRO (Highlight) -->
-          <div class="relative flex flex-col rounded-3xl border border-foreground bg-foreground/95 backdrop-blur-md text-background p-8 shadow-2xl lg:-translate-y-4 lg:scale-[1.02]">
+          <div class="shrink-0 w-[85vw] sm:w-[350px] lg:w-auto snap-center relative flex flex-col rounded-3xl border border-foreground bg-foreground/95 backdrop-blur-md text-background p-8 shadow-2xl lg:-translate-y-4 lg:scale-[1.02]">
             <span class="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-primary px-4 py-1 text-xs font-bold uppercase tracking-wider text-primary-foreground">Mais escolhido</span>
             <div class="flex items-baseline justify-between">
               <h3 class="font-display text-3xl font-extrabold tracking-tight">PRO</h3>
@@ -243,7 +249,7 @@
           </div>
 
           <!-- MAX -->
-          <div class="relative flex flex-col rounded-3xl border border-border bg-background/95 backdrop-blur-md p-8 transition hover:border-foreground/30 shadow-sm">
+          <div class="shrink-0 w-[85vw] sm:w-[350px] lg:w-auto snap-center relative flex flex-col rounded-3xl border border-border bg-background/95 backdrop-blur-md p-8 transition hover:border-foreground/30 shadow-sm">
             <div class="flex items-baseline justify-between">
               <h3 class="font-display text-3xl font-extrabold tracking-tight">MAX</h3>
               <span class="text-xs font-semibold uppercase tracking-wider text-foreground/50">Domínio</span>
@@ -262,7 +268,7 @@
       </div>
     </section>
 
-    <!-- ================= METODOLOGIA LIMPA ================= -->
+    <!-- ================= METODOLOGIA (CARROSSÉL MOBILE) ================= -->
     <section class="bg-surface py-24">
       <div class="mx-auto max-w-7xl px-6">
         <div class="flex flex-col items-start justify-between gap-6 md:flex-row md:items-end">
@@ -273,12 +279,12 @@
           <p class="max-w-md text-foreground/60">Um fluxo ágil e transparente, sem reuniões intermináveis e sem burocracia.</p>
         </div>
         
-        <!-- Grade de Imagens (Cards Prontos) -->
-        <div class="mt-14 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          <img src="assets/1-contrate.webp" alt="Contrate pelo site" class="w-full h-auto rounded-3xl shadow-sm transition hover:scale-105">
-          <img src="assets/2-reunião.webp" alt="Reunião de alinhamento" class="w-full h-auto rounded-3xl shadow-sm transition hover:scale-105">
-          <img src="assets/3-acompanhe.webp" alt="Acompanhe pelo app" class="w-full h-auto rounded-3xl shadow-sm transition hover:scale-105">
-          <img src="assets/4-receba.webp" alt="Receba o seu projeto" class="w-full h-auto rounded-3xl shadow-sm transition hover:scale-105">
+        <!-- Container Flex no Mobile (Carrossel) e Grid no Desktop -->
+        <div class="mt-14 flex overflow-x-auto snap-x snap-mandatory gap-6 pb-8 hide-scrollbar -mx-6 px-6 md:mx-0 md:px-0 md:grid md:grid-cols-2 lg:grid-cols-4 md:overflow-visible md:pb-0">
+          <img src="assets/1-contrate.webp" alt="Contrate pelo site" class="w-full h-auto rounded-3xl shadow-sm transition hover:scale-105 shrink-0 w-[75vw] md:w-auto snap-center">
+          <img src="assets/2-reunião.webp" alt="Reunião de alinhamento" class="w-full h-auto rounded-3xl shadow-sm transition hover:scale-105 shrink-0 w-[75vw] md:w-auto snap-center">
+          <img src="assets/3-acompanhe.webp" alt="Acompanhe pelo app" class="w-full h-auto rounded-3xl shadow-sm transition hover:scale-105 shrink-0 w-[75vw] md:w-auto snap-center">
+          <img src="assets/4-receba.webp" alt="Receba o seu projeto" class="w-full h-auto rounded-3xl shadow-sm transition hover:scale-105 shrink-0 w-[75vw] md:w-auto snap-center">
         </div>
         
         <!-- Novo CTA da Secção -->
